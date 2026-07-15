@@ -1,125 +1,37 @@
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, TreePine } from "lucide-react";
-import heroImage from "@/assets/hero-camping.jpg";
-import forestImage from "@/assets/spot-forest.jpg";
-import lakeImage from "@/assets/spot-lake.jpg";
-import meadowImage from "@/assets/spot-meadow.jpg";
+import { photos, property } from "@/data/property";
+import BookingButton from "./BookingButton";
+import { Link } from "react-router-dom";
 
-const slides = [
-  { image: heroImage, alt: "Off-grid camping in nature" },
-  { image: forestImage, alt: "Forest camping spot" },
-  { image: lakeImage, alt: "Lakeside retreat" },
-  { image: meadowImage, alt: "Meadow camping experience" },
-];
-
-const SLIDE_DURATION = 5000;
-
-const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [progress, setProgress] = useState(0);
-
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-    setProgress(0);
-  }, []);
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-    setProgress(0);
-  };
-
-  useEffect(() => {
-    const progressInterval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          nextSlide();
-          return 0;
-        }
-        return prev + (100 / (SLIDE_DURATION / 50));
-      });
-    }, 50);
-
-    return () => clearInterval(progressInterval);
-  }, [nextSlide]);
-
+export default function Hero() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      {/* Image Ticker */}
-      <AnimatePresence mode="popLayout">
-        <motion.div
-          key={currentSlide}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="absolute inset-0"
-        >
-          <img
-            src={slides[currentSlide].image}
-            alt={slides[currentSlide].alt}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/30" />
-        </motion.div>
-      </AnimatePresence>
+    <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
+      <img
+        src={photos.hero}
+        alt="Camera Luxury del B&B Via del Mare con vasca idromassaggio a Campomarino"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-sea/50 via-sea/20 to-sea/70" />
 
-      {/* Bottom-Left Text Content */}
-      <div className="absolute bottom-20 left-6 md:left-12 lg:left-16 z-10 text-white">
-        {/* Tree Icon */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          className="mb-4"
-        >
-          <TreePine className="w-6 h-6 text-white stroke-[1.5]" />
-        </motion.div>
+      <div className="relative z-10 h-full container-editorial flex flex-col justify-end pb-20 md:pb-28 text-background">
+        <p className="label opacity-80 fade-in">{property.location}</p>
+        <h1 className="mt-5 font-serif text-[13vw] md:text-[6.5rem] leading-[0.95] tracking-tight fade-in">
+          Via del Mare
+        </h1>
+        <p className="mt-6 max-w-xl text-lg md:text-xl font-light leading-relaxed opacity-90 fade-in">
+          Un Bed & Breakfast a trecento metri dalla spiaggia di Campomarino.
+          Due camere curate, colazione italiana, e la sensazione di essere accolti in casa.
+        </p>
 
-        {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight max-w-md text-left flex flex-col"
-        >
-          <span>Disconnect</span>
-          <span>to Reconnect</span>
-        </motion.h1>
-
-        {/* CTA Button */}
-        <motion.button
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-          onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
-          className="mt-6 flex items-center gap-3 bg-white text-foreground px-6 py-3 rounded-full text-sm tracking-wide hover:bg-white/90 transition-colors"
-        >
-          Book Now
-          <ArrowRight className="w-4 h-4" />
-        </motion.button>
-      </div>
-
-      {/* Progress Bars */}
-      <div className="absolute bottom-8 left-6 md:left-12 lg:left-16 right-6 md:right-12 lg:right-16 z-10 flex gap-2">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className="flex-1 h-[2px] bg-white/30 overflow-hidden cursor-pointer"
-            aria-label={`Go to slide ${index + 1}`}
+        <div className="mt-10 flex flex-wrap gap-4 fade-in">
+          <BookingButton variant="primary">Prenota su Booking</BookingButton>
+          <Link
+            to="/camere"
+            className="inline-flex items-center gap-3 px-7 py-3.5 text-[13px] tracking-[0.18em] uppercase border border-background/60 hover:bg-background hover:text-sea transition-colors"
           >
-            <div
-              className="h-full bg-white transition-all duration-100 ease-linear"
-              style={{
-                width: index === currentSlide ? `${progress}%` : index < currentSlide ? "100%" : "0%",
-              }}
-            />
-          </button>
-        ))}
+            Scopri le camere
+          </Link>
+        </div>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}
