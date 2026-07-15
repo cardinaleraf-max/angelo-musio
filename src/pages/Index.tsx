@@ -4,6 +4,7 @@ import Intro from "@/components/Intro";
 import Rating from "@/components/Rating";
 import RoomCards from "@/components/RoomCards";
 import Amenities from "@/components/Amenities";
+import GalleryStrip from "@/components/GalleryStrip";
 import LocationMap from "@/components/LocationMap";
 import Reviews from "@/components/Reviews";
 import CtaBanner from "@/components/CtaBanner";
@@ -18,6 +19,7 @@ const Index = () => (
       <Rating />
       <RoomCards />
       <Amenities />
+      <GalleryStrip />
       <LocationMap compact />
       <Reviews />
       <CtaBanner />
