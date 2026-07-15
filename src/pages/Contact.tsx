@@ -1,172 +1,76 @@
-import { useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import Navigation from "@/components/Navigation";
+import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Card } from "@/components/ui/card";
-import { useToast } from "@/hooks/use-toast";
-import { User, Mail, MessageSquare, FileText } from "lucide-react";
-import bannerImage from "@/assets/detail-meadow-1.jpg";
+import BookingButton from "@/components/BookingButton";
+import { property } from "@/data/property";
 
-const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
+const Contact = () => (
+  <div className="overflow-x-hidden">
+    <Nav />
+    <main className="pt-32">
+      <section className="container-editorial pb-24">
+        <p className="label text-muted-foreground">Contatti</p>
+        <h1 className="mt-5 font-serif text-6xl md:text-7xl text-sea leading-[1.02] max-w-3xl">
+          Scriveteci, rispondiamo sempre.
+        </h1>
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    toast({
-      title: "Message sent",
-      description: "We'll get back to you as soon as possible.",
-    });
-
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setIsSubmitting(false);
-  };
-
-  return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
-      <Navigation />
-
-      {/* Hero Image with Parallax */}
-      <div className="relative w-full h-[50vh] overflow-hidden">
-        <motion.img
-          src={bannerImage}
-          alt="Contact banner"
-          style={{ y }}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2 }}
-          className="absolute inset-0 w-full h-[120%] object-cover"
-        />
-        <div className="absolute inset-0 bg-black/20" />
-      </div>
-
-      <main className="py-24 lg:py-32 px-6 lg:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-md mx-auto"
-        >
-          <div className="text-center mb-16">
-            <span className="text-[11px] uppercase tracking-wider text-muted-foreground mb-4 block">
-              Contact
-            </span>
-            <h1 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-4">
-              Get in Touch
-            </h1>
-            <p className="text-sm text-muted-foreground font-light">
-              Have a question or want to book a stay? We'd love to hear from you.
-            </p>
+        <div className="mt-16 grid gap-16 md:grid-cols-12">
+          <div className="md:col-span-5 space-y-10">
+            <div>
+              <p className="label text-muted-foreground mb-3">Indirizzo</p>
+              <p className="font-serif text-2xl text-sea leading-snug">{property.address}</p>
+            </div>
+            <div>
+              <p className="label text-muted-foreground mb-3">Email</p>
+              <a href={`mailto:${property.email}`} className="font-serif text-2xl text-sea underline-offset-4 hover:underline">
+                {property.email}
+              </a>
+            </div>
+            <div>
+              <p className="label text-muted-foreground mb-3">Orari</p>
+              <p className="text-base text-foreground/80">
+                Check-in {property.checkIn}<br />
+                Check-out {property.checkOut}
+              </p>
+            </div>
+            <div className="pt-4">
+              <BookingButton>Prenota su Booking</BookingButton>
+            </div>
           </div>
 
-          <Card className="p-8 lg:p-10 shadow-soft border border-border bg-card">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <Label htmlFor="name" className="flex items-center gap-1.5 mb-3 text-card-foreground text-[11px] uppercase tracking-wider font-normal">
-                  <User className="h-3 w-3" />
-                  Name
-                </Label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  maxLength={100}
-                  className="rounded-md text-sm font-light"
-                />
+          <aside className="md:col-span-6 md:col-start-7 border-t border-border pt-10">
+            <p className="label text-muted-foreground mb-6">Informazioni legali</p>
+            <dl className="space-y-4 text-sm">
+              <div className="flex justify-between border-b border-border/60 py-2">
+                <dt className="text-muted-foreground">Ragione sociale</dt>
+                <dd className="text-right max-w-[70%]">{property.legal.business}</dd>
               </div>
-
-              <div>
-                <Label htmlFor="email" className="flex items-center gap-1.5 mb-3 text-card-foreground text-[11px] uppercase tracking-wider font-normal">
-                  <Mail className="h-3 w-3" />
-                  Email
-                </Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  maxLength={255}
-                  className="rounded-md text-sm font-light"
-                />
+              <div className="flex justify-between border-b border-border/60 py-2">
+                <dt className="text-muted-foreground">P.IVA / C.F.</dt>
+                <dd>{property.legal.vat}</dd>
               </div>
-
-              <div>
-                <Label htmlFor="subject" className="flex items-center gap-1.5 mb-3 text-card-foreground text-[11px] uppercase tracking-wider font-normal">
-                  <MessageSquare className="h-3 w-3" />
-                  Subject
-                </Label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  maxLength={200}
-                  className="rounded-md text-sm font-light"
-                />
+              <div className="flex justify-between border-b border-border/60 py-2">
+                <dt className="text-muted-foreground">REA</dt>
+                <dd>{property.legal.rea}</dd>
               </div>
-
-              <div>
-                <Label htmlFor="message" className="flex items-center gap-1.5 mb-3 text-card-foreground text-[11px] uppercase tracking-wider font-normal">
-                  <FileText className="h-3 w-3" />
-                  Message
-                </Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  maxLength={1000}
-                  rows={5}
-                  className="rounded-md resize-none text-sm font-light"
-                />
+              <div className="flex justify-between border-b border-border/60 py-2">
+                <dt className="text-muted-foreground">CIN</dt>
+                <dd>{property.cin}</dd>
               </div>
-
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full rounded-md bg-primary text-primary-foreground hover:bg-primary/90 text-[11px] uppercase tracking-wider font-normal"
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </Button>
-            </form>
-          </Card>
-        </motion.div>
-      </main>
-
-      <Footer />
-    </div>
-  );
-};
+              <div className="flex justify-between border-b border-border/60 py-2">
+                <dt className="text-muted-foreground">Licenza</dt>
+                <dd>{property.license}</dd>
+              </div>
+              <div className="flex justify-between border-b border-border/60 py-2">
+                <dt className="text-muted-foreground">PEC</dt>
+                <dd>{property.email}</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+);
 
 export default Contact;

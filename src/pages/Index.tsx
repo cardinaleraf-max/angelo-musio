@@ -1,21 +1,29 @@
-import Navigation from "@/components/Navigation";
+import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Locations from "@/components/Locations";
-import Experience from "@/components/Experience";
-import Booking from "@/components/Booking";
+import Intro from "@/components/Intro";
+import Rating from "@/components/Rating";
+import RoomCards from "@/components/RoomCards";
+import Amenities from "@/components/Amenities";
+import LocationMap from "@/components/LocationMap";
+import Reviews from "@/components/Reviews";
+import CtaBanner from "@/components/CtaBanner";
 import Footer from "@/components/Footer";
 
-const Index = () => {
-  return (
-    <div className="min-h-screen overflow-x-hidden">
-      <Navigation />
+const Index = () => (
+  <div className="overflow-x-hidden">
+    <Nav transparent />
+    <main>
       <Hero />
-      <Locations />
-      <Experience />
-      <Booking />
-      <Footer />
-    </div>
-  );
-};
+      <Intro />
+      <Rating />
+      <RoomCards />
+      <Amenities />
+      <LocationMap compact />
+      <Reviews />
+      <CtaBanner />
+    </main>
+    <Footer />
+  </div>
+);
 
 export default Index;
