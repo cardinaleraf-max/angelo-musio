@@ -1,6 +1,8 @@
 export const BOOKING_URL =
   "https://www.booking.com/hotel/it/b-amp-b-via-del-mare-campomarino-lido.html";
 
+export const SITE_URL = "https://bbviadelmare.it";
+
 export const property = {
   name: "B&B Via del Mare",
   tagline: "Bed & Breakfast a Campomarino Lido",
@@ -19,7 +21,7 @@ export const property = {
   },
   rating: {
     score: 9.0,
-    label: "Wonderful",
+    label: "Eccellente",
     reviews: 3,
     categories: [
       { label: "Personale", value: 10 },
@@ -32,16 +34,35 @@ export const property = {
   },
 };
 
+// Foto ufficiali della struttura, servite dal progetto (public/photos/).
+// Vengono scaricate dal CDN Booking con `node scripts/fetch-photos.mjs`
+// (eseguito in automatico prima di ogni build).
 export const photos = {
-  hero: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/876863019.jpg?k=c910e313e6f8d7700d175a27ac9fefed7b566a41de43e4f3e6b81cdec15ea996&o=",
-  bedroom: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/877373273.jpg?k=f12cf9c007925584701727274556b684985491394737417e50f2dcd317197224&o=",
-  jacuzziGreen: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/877373284.jpg?k=267621d38708b1e4a22dacee65808a7eba2fc5b8e414469cc84ffaa169ffc2ee&o=",
-  living: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/877373300.jpg?k=b6836deac848195a051d0e56a728f3bcc6b7d774d6410442325e13266fa132b5&o=",
-  detail: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/877373265.jpg?k=e8e68b5e8283a182fb7b18b43afa8c69db0b4e85fad071eef80cd45b0235364d&o=",
-  console: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/877373298.jpg?k=0e194de5149a227b0402cf0acfa3f2ac41813c5f0f396251010973c53688756b&o=",
-  bathroom: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/877373296.jpg?k=d94eceb25fdb0e1264870ce0a57e3d70da8361c34420979deb2e71b24c2a7ba3&o=",
-  shower: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/877373278.jpg?k=38cc5bc88e43eb7ee18fe062a76933dde4642d793491a6e73971612a56df02b8&o=",
+  hero: "/photos/camera-luxury.jpg",
+  bedroom: "/photos/camera-letto.jpg",
+  jacuzziGreen: "/photos/vasca-idromassaggio.jpg",
+  living: "/photos/soggiorno.jpg",
+  detail: "/photos/dettaglio.jpg",
+  console: "/photos/consolle.jpg",
+  bathroom: "/photos/bagno.jpg",
+  shower: "/photos/doccia.jpg",
 };
+
+export const heroSlides = [
+  { src: photos.hero, caption: "La camera Luxury, con vasca idromassaggio" },
+  { src: photos.bedroom, caption: "Letti freschi di bucato, ogni giorno" },
+  { src: photos.living, caption: "Il soggiorno, per la colazione italiana" },
+  { src: photos.jacuzziGreen, caption: "La vasca idromassaggio a bordo camera" },
+];
+
+export const galleryStrip = [
+  { src: photos.bedroom, caption: "La camera" },
+  { src: photos.jacuzziGreen, caption: "L'idromassaggio" },
+  { src: photos.living, caption: "Il soggiorno" },
+  { src: photos.console, caption: "I dettagli" },
+  { src: photos.bathroom, caption: "Il bagno" },
+  { src: photos.detail, caption: "Gli arredi" },
+];
 
 export const rooms = [
   {
@@ -53,7 +74,16 @@ export const rooms = [
     description:
       "Una camera luminosa con arredi curati, bagno privato, aria condizionata e balcone. Pensata per famiglie o piccoli gruppi che vogliono restare vicini al mare senza rinunciare al comfort.",
     photos: [photos.bedroom, photos.living, photos.detail, photos.bathroom],
-    features: ["Bagno privato", "Aria condizionata", "Balcone", "WiFi gratuito", "TV", "Set di cortesia"],
+    features: [
+      "Bagno privato con bidet",
+      "Aria condizionata",
+      "Balcone",
+      "WiFi gratuito",
+      "TV a schermo piatto",
+      "Frigorifero",
+      "Macchina del caffè",
+      "Cassaforte",
+    ],
   },
   {
     id: "luxury-triple",
@@ -64,7 +94,16 @@ export const rooms = [
     description:
       "La camera più richiesta: pareti in doghe di legno, illuminazione morbida e una vasca idromassaggio a bordo camera. Per un weekend a due, un anniversario, o una fuga senza compromessi.",
     photos: [photos.hero, photos.jacuzziGreen, photos.console, photos.shower],
-    features: ["Vasca idromassaggio", "Bagno privato", "Aria condizionata", "Balcone / Terrazzo", "WiFi gratuito", "Set di cortesia"],
+    features: [
+      "Vasca idromassaggio",
+      "Bagno privato con bidet",
+      "Aria condizionata",
+      "Balcone / Terrazzo",
+      "WiFi gratuito",
+      "TV a schermo piatto",
+      "Macchina del caffè",
+      "Set di cortesia",
+    ],
   },
 ];
 

@@ -1,18 +1,20 @@
 import { photos, property } from "@/data/property";
 import BookingButton from "./BookingButton";
+import Reveal from "./Reveal";
 
 export default function Intro() {
   return (
     <section className="py-24 md:py-32">
       <div className="container-editorial grid gap-12 md:grid-cols-12 items-center">
-        <div className="md:col-span-6">
+        <Reveal className="md:col-span-6">
           <img
             src={photos.living}
             alt="Interni del B&B Via del Mare"
             className="w-full aspect-[4/5] object-cover"
           />
-        </div>
-        <div className="md:col-span-5 md:col-start-8">
+          <p className="mt-3 font-serif italic text-sm text-muted-foreground">Il soggiorno, dove serviamo la colazione.</p>
+        </Reveal>
+        <Reveal delay={120} className="md:col-span-5 md:col-start-8">
           <p className="label text-muted-foreground">{property.hosts}, i vostri ospiti</p>
           <h2 className="mt-5 font-serif text-5xl md:text-6xl leading-[1.02] text-sea">
             Vi accogliamo come un amico di famiglia.
@@ -33,7 +35,7 @@ export default function Intro() {
           <div className="mt-10">
             <BookingButton variant="ghost">Verifica disponibilità</BookingButton>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

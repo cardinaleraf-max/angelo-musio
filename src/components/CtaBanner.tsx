@@ -12,7 +12,7 @@ export default function CtaBanner() {
         </div>
         <div className="md:col-span-4 md:text-right">
           <BookingButton variant="light">Prenota su Booking</BookingButton>
-          <p className="mt-4 text-xs opacity-60">Miglior prezzo garantito su Booking.com</p>
+          <p className="mt-4 text-xs opacity-60">Prenotazione sicura e prezzi aggiornati su Booking.com</p>
         </div>
       </div>
     </section>

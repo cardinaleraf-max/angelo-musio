@@ -1,73 +1,61 @@
-# Welcome to your Lovable project
+# B&B Via del Mare — bbviadelmare.it
 
-## Project info
+Sito vetrina del **B&B Via del Mare** di Campomarino Lido (CB), Molise.
+Ogni CTA "Prenota" apre la pagina della struttura su Booking.com.
 
-**URL**: https://lovable.dev/projects/1e49eeda-b375-49ea-be21-892412c77e87
+Costruito con Vite + React + TypeScript + Tailwind CSS.
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/1e49eeda-b375-49ea-be21-892412c77e87) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Sviluppo locale
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+npm install
+npm run fetch-photos   # scarica le foto della struttura in public/photos/
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Le foto ufficiali vengono scaricate dal CDN di Booking con `scripts/fetch-photos.mjs`
+(eseguito anche in automatico prima di ogni build). **Consiglio:** dopo averle
+scaricate in locale, committa la cartella `public/photos/` — così il sito non
+dipende più dagli URL Booking, che potrebbero cambiare nel tempo.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Deploy su GitHub Pages (bbviadelmare.it)
 
-**Use GitHub Codespaces**
+Il deploy è automatico: a ogni push su `main` la workflow
+`.github/workflows/deploy.yml` builda il sito (scaricando le foto) e lo
+pubblica su GitHub Pages.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Configurazione una tantum
 
-## What technologies are used for this project?
+1. **GitHub → Settings → Pages** → in "Build and deployment" scegli
+   **Source: GitHub Actions**.
+2. Sempre in **Settings → Pages**, nel campo "Custom domain" inserisci
+   `bbviadelmare.it` e spunta **Enforce HTTPS** (dopo la verifica DNS).
+3. **DNS del dominio** (dal pannello del registrar di bbviadelmare.it):
 
-This project is built with:
+   | Tipo  | Nome | Valore |
+   |-------|------|--------|
+   | A     | @    | 185.199.108.153 |
+   | A     | @    | 185.199.109.153 |
+   | A     | @    | 185.199.110.153 |
+   | A     | @    | 185.199.111.153 |
+   | CNAME | www  | cardinaleraf-max.github.io |
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+   La propagazione DNS può richiedere fino a qualche ora; poi GitHub emette
+   automaticamente il certificato HTTPS.
 
-## How can I deploy this project?
+Il file `public/CNAME` (contiene `bbviadelmare.it`) viene incluso nella build:
+non rimuoverlo, serve a GitHub Pages per il dominio personalizzato.
 
-Simply open [Lovable](https://lovable.dev/projects/1e49eeda-b375-49ea-be21-892412c77e87) and click on Share -> Publish.
+### Note tecniche
 
-## Can I connect a custom domain to my Lovable project?
+- Routing client-side (React Router): la workflow copia `index.html` in
+  `404.html`, così anche gli accessi diretti a `/camere`, `/dove-siamo`,
+  `/contatti` funzionano su Pages.
+- SEO: meta tag, Open Graph, dati strutturati schema.org (BedAndBreakfast),
+  `sitemap.xml` e `robots.txt` puntano a `https://bbviadelmare.it`.
 
-Yes, you can!
+## Struttura contenuti
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Tutti i dati della struttura (camere, servizi, recensioni, distanze, dati
+legali, punteggi Booking) sono in un unico file: `src/data/property.ts`.
+Per aggiornare un testo o un punteggio si modifica solo quello.
