@@ -66,9 +66,9 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Italiana', 'Didot', 'serif'],
-        serif: ['Newsreader', 'Georgia', 'serif'],
-        sans: ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],
+        display: ['Archivo', 'system-ui', 'sans-serif'],
+        label: ['"Space Grotesk"', 'monospace', 'sans-serif'],
+        sans: ['Archivo', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         tightest: '-0.03em',

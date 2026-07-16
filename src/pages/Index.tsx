@@ -11,11 +11,10 @@ import CtaBanner from "@/components/CtaBanner";
 import Footer from "@/components/Footer";
 
 const Index = () => (
-  <div className="overflow-x-hidden">
+  <div className="overflow-x-clip">
     <Nav transparent />
     <main>
       <Hero />
-      <div className="awning" aria-hidden />
       <Intro />
       <Rating />
       <RoomCards />

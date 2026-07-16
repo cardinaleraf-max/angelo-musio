@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 type Props = {
   children?: React.ReactNode;
-  variant?: "primary" | "ghost" | "light" | "light-solid";
+  variant?: "primary" | "ghost" | "light";
   className?: string;
   label?: string;
 };
@@ -15,12 +15,11 @@ export default function BookingButton({
   label,
 }: Props) {
   const base =
-    "inline-flex items-center gap-3 px-7 py-3.5 text-[13px] tracking-[0.18em] uppercase transition-colors duration-300 border";
+    "group inline-flex items-center gap-3 px-7 py-4 label !text-[13px] !font-bold transition-all duration-300 border-2";
   const styles = {
-    primary: "bg-sea text-background border-sea hover:bg-sea-soft hover:border-sea-soft hover:text-sea",
-    ghost: "bg-transparent text-current border-current/40 hover:bg-current hover:text-background",
-    light: "bg-transparent text-background border-background/60 hover:bg-background hover:text-sea",
-    "light-solid": "bg-background text-sea border-background hover:bg-sea-soft hover:border-sea-soft",
+    primary: "bg-clay text-cta-foreground border-clay hover:bg-sea-soft hover:border-sea-soft",
+    ghost: "bg-transparent text-current border-current hover:bg-clay hover:text-cta-foreground hover:border-clay",
+    light: "bg-transparent text-background border-background/70 hover:bg-clay hover:text-cta-foreground hover:border-clay",
   } as const;
 
   return (
@@ -32,8 +31,15 @@ export default function BookingButton({
       className={cn(base, styles[variant], className)}
     >
       <span>{children}</span>
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-        <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 14 14"
+        fill="none"
+        aria-hidden
+        className="transition-transform duration-300 group-hover:translate-x-1"
+      >
+        <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
       </svg>
     </a>
   );

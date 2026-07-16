@@ -2,62 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* B&B Via del Mare — lino bianco, inchiostro d'Adriatico, l'acqua del logo.
-   Firma visiva: le doghe verticali delle camere (e degli ombrelloni da lido). */
+/* B&B Via del Mare — bold contemporaneo.
+   Archivo nero espanso, acqua elettrica, corallo per prenotare.
+   Firma: marquee da lido + doghe verticali nello slideshow. */
 
 @layer base {
   :root {
     /* Base */
-    --background: 45 33% 97%;         /* lino #FBFAF6 */
-    --foreground: 192 70% 15%;        /* abisso #0C3641 */
+    --background: 40 38% 97%;         /* bianco caldo #FAF8F3 */
+    --foreground: 194 66% 11%;        /* notte d'Adriatico #0A2730 */
 
-    --card: 45 40% 99%;
-    --card-foreground: 192 70% 15%;
+    --card: 40 40% 99%;
+    --card-foreground: 194 66% 11%;
 
-    --popover: 45 40% 99%;
-    --popover-foreground: 192 70% 15%;
+    --popover: 40 40% 99%;
+    --popover-foreground: 194 66% 11%;
 
-    /* Primary — inchiostro d'Adriatico */
-    --primary: 192 70% 15%;
-    --primary-foreground: 45 40% 99%;
+    --primary: 194 66% 11%;
+    --primary-foreground: 40 40% 99%;
 
-    /* Secondary — sabbia chiara */
-    --secondary: 40 41% 89%;
-    --secondary-foreground: 192 70% 15%;
+    --secondary: 40 30% 90%;
+    --secondary-foreground: 194 66% 11%;
 
-    --muted: 43 25% 91%;
-    --muted-foreground: 192 20% 38%;
+    --muted: 42 24% 91%;
+    --muted-foreground: 194 22% 38%;
 
-    /* Accent — l'acqua del logo, usata con coraggio */
-    --accent: 186 57% 52%;            /* #3FBDCB */
-    --accent-foreground: 192 70% 15%;
+    /* Accent — acqua elettrica, a blocchi pieni */
+    --accent: 187 73% 49%;            /* #21C7DB */
+    --accent-foreground: 194 66% 11%;
 
-    --cta: 192 70% 15%;
-    --cta-foreground: 45 40% 99%;
+    /* CTA — corallo, solo per prenotare */
+    --cta: 12 100% 61%;               /* #FF5C39 */
+    --cta-foreground: 194 66% 11%;
 
     --destructive: 0 70% 45%;
-    --destructive-foreground: 45 40% 99%;
+    --destructive-foreground: 40 40% 99%;
 
-    --border: 44 18% 84%;
-    --input: 44 18% 84%;
-    --ring: 186 57% 52%;
+    --border: 42 16% 82%;
+    --input: 42 16% 82%;
+    --ring: 187 73% 49%;
 
     --radius: 0rem;
 
-    --sand: 45 33% 97%;               /* lino */
-    --sand-dark: 40 41% 89%;          /* sabbia */
-    --sea: 192 70% 15%;               /* abisso */
-    --sea-soft: 186 57% 52%;          /* acqua */
-    --clay: 29 36% 49%;               /* legno delle doghe */
+    --sand: 40 38% 97%;
+    --sand-dark: 40 30% 90%;
+    --sea: 194 66% 11%;               /* notte */
+    --sea-soft: 187 73% 49%;          /* acqua */
+    --clay: 12 100% 61%;              /* corallo */
 
-    --sidebar-background: 45 40% 99%;
-    --sidebar-foreground: 192 70% 15%;
-    --sidebar-primary: 192 70% 15%;
-    --sidebar-primary-foreground: 45 40% 99%;
-    --sidebar-accent: 40 41% 89%;
-    --sidebar-accent-foreground: 192 70% 15%;
-    --sidebar-border: 44 18% 84%;
-    --sidebar-ring: 186 57% 52%;
+    --sidebar-background: 40 40% 99%;
+    --sidebar-foreground: 194 66% 11%;
+    --sidebar-primary: 194 66% 11%;
+    --sidebar-primary-foreground: 40 40% 99%;
+    --sidebar-accent: 40 30% 90%;
+    --sidebar-accent-foreground: 194 66% 11%;
+    --sidebar-border: 42 16% 82%;
+    --sidebar-ring: 187 73% 49%;
   }
 }
 
@@ -74,12 +74,8 @@
     scroll-behavior: smooth;
   }
 
-  h1, h2 {
-    @apply font-display font-normal;
-  }
-
   ::selection {
-    background: hsl(var(--sea-soft) / 0.35);
+    background: hsl(var(--sea-soft) / 0.4);
   }
 
   :focus-visible {
@@ -93,16 +89,34 @@
     text-wrap: balance;
   }
 
+  /* Titoli — Archivo nero, espanso, maiuscolo */
+  .headline {
+    font-family: Archivo, system-ui, sans-serif;
+    font-stretch: 116%;
+    font-weight: 860;
+    text-transform: uppercase;
+    letter-spacing: -0.015em;
+    line-height: 0.92;
+  }
+
+  /* Numeri e scritte giganti solo contorno */
+  .outline-text {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.5px currentColor;
+  }
+
   .label {
-    @apply uppercase text-[11px] tracking-[0.24em] font-medium;
+    font-family: "Space Grotesk", monospace;
+    @apply uppercase text-[11px] tracking-[0.18em] font-medium;
+  }
+
+  .caption {
+    font-family: "Space Grotesk", monospace;
+    @apply text-[13px] tracking-[0.04em];
   }
 
   .container-editorial {
-    @apply mx-auto w-full max-w-[1280px] px-6 md:px-10;
-  }
-
-  .rule {
-    @apply block h-px w-12 bg-current opacity-40;
+    @apply mx-auto w-full max-w-[1320px] px-6 md:px-10;
   }
 
   .fade-in {
@@ -110,13 +124,13 @@
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(12px); }
+    from { opacity: 0; transform: translateY(14px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Hero — ogni doga scivola via rivelando la foto successiva */
+  /* Hero — ogni doga scatta rivelando la foto successiva */
   .slat-in {
-    animation: slatIn 1s cubic-bezier(0.7, 0, 0.2, 1) both;
+    animation: slatIn 0.8s cubic-bezier(0.85, 0, 0.15, 1) both;
   }
 
   @keyframes slatIn {
@@ -124,53 +138,41 @@
     to { transform: translateY(0); }
   }
 
-  /* Zoom lentissimo sulla slide attiva */
   .kenburns {
-    animation: kenburns 12s ease-out both;
+    animation: kenburns 11s ease-out both;
   }
 
   @keyframes kenburns {
-    from { transform: scale(1.06); }
+    from { transform: scale(1.05); }
     to { transform: scale(1); }
   }
 
   .caption-in {
-    animation: captionIn 0.7s ease-out 0.5s both;
+    animation: captionIn 0.6s ease-out 0.4s both;
   }
 
   @keyframes captionIn {
     from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 0.85; transform: translateY(0); }
+    to { opacity: 0.9; transform: translateY(0); }
   }
 
-  /* Tenda da sole — righe acqua/lino con bordo smerlato */
-  .awning {
-    height: 22px;
-    background: repeating-linear-gradient(
-      90deg,
-      hsl(var(--sea-soft)) 0 26px,
-      hsl(var(--background)) 26px 52px
-    );
-    -webkit-mask:
-      linear-gradient(#000 0 0) 0 0 / 100% calc(100% - 11px) no-repeat,
-      radial-gradient(11px at 13px 0, #000 10.5px, #0000 11px) 0 100% / 26px 11px repeat-x;
-    mask:
-      linear-gradient(#000 0 0) 0 0 / 100% calc(100% - 11px) no-repeat,
-      radial-gradient(11px at 13px 0, #000 10.5px, #0000 11px) 0 100% / 26px 11px repeat-x;
+  /* Marquee — nastro che scorre, in loop */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 22s linear infinite;
   }
 
-  /* Texture a doghe verticali per le sezioni scure */
-  .doghe {
-    background-image: repeating-linear-gradient(
-      90deg,
-      hsl(var(--background) / 0.045) 0 1px,
-      transparent 1px 64px
-    );
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 
-  .scrollbar-thin {
-    scrollbar-width: thin;
-    scrollbar-color: hsl(var(--sea) / 0.3) transparent;
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -179,8 +181,11 @@
     .caption-in {
       animation: none;
     }
+    .marquee-track {
+      animation-duration: 120s;
+    }
     .slat-in {
-      animation: slatFade 0.6s ease both;
+      animation: slatFade 0.5s ease both;
     }
     @keyframes slatFade {
       from { opacity: 0; transform: none; }

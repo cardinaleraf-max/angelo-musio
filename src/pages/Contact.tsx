@@ -4,12 +4,12 @@ import BookingButton from "@/components/BookingButton";
 import { property } from "@/data/property";
 
 const Contact = () => (
-  <div className="overflow-x-hidden">
+  <div className="overflow-x-clip">
     <Nav />
     <main className="pt-32">
       <section className="container-editorial pb-24">
         <p className="label text-muted-foreground">Contatti</p>
-        <h1 className="mt-5 font-display text-6xl md:text-7xl text-sea leading-[1.02] max-w-3xl">
+        <h1 className="mt-5 headline text-5xl md:text-7xl text-sea max-w-3xl">
           Scriveteci, rispondiamo sempre.
         </h1>
 
@@ -17,11 +17,11 @@ const Contact = () => (
           <div className="md:col-span-5 space-y-10">
             <div>
               <p className="label text-muted-foreground mb-3">Indirizzo</p>
-              <p className="font-serif text-2xl text-sea leading-snug">{property.address}</p>
+              <p className="text-xl font-medium text-sea leading-snug">{property.address}</p>
             </div>
             <div>
               <p className="label text-muted-foreground mb-3">Email</p>
-              <a href={`mailto:${property.email}`} className="font-serif text-2xl text-sea underline-offset-4 hover:underline">
+              <a href={`mailto:${property.email}`} className="text-xl font-medium text-sea underline-offset-4 hover:underline">
                 {property.email}
               </a>
             </div>

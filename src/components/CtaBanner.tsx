@@ -1,19 +1,29 @@
-import BookingButton from "./BookingButton";
+import { BOOKING_URL } from "@/data/property";
+import Marquee from "./fx/Marquee";
 
 export default function CtaBanner() {
   return (
-    <section className="bg-sea text-background doghe">
-      <div className="container-editorial py-24 md:py-32 grid md:grid-cols-12 gap-10 items-end">
-        <div className="md:col-span-8">
-          <p className="label opacity-60">Il tuo prossimo weekend</p>
-          <h2 className="mt-5 font-display text-5xl md:text-6xl leading-[1.02]">
-            Il mare aspetta. La camera anche.
-          </h2>
-        </div>
-        <div className="md:col-span-4 md:text-right">
-          <BookingButton variant="light">Prenota su Booking</BookingButton>
-          <p className="mt-4 text-xs opacity-60">Prenotazione sicura e prezzi aggiornati su Booking.com</p>
-        </div>
+    <section className="bg-sea text-background overflow-hidden">
+      <Marquee
+        items={["Il mare aspetta", "La camera anche", "Prenota ora"]}
+        className="border-b-2 border-background/15 py-3 headline text-xl md:text-2xl text-sea-soft"
+      />
+      <div className="container-editorial py-20 md:py-28">
+        <a
+          href={BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Prenota su Booking.com"
+          className="group block"
+        >
+          <span className="label text-sea-soft">Il tuo prossimo weekend</span>
+          <span className="mt-4 block headline text-[13vw] md:text-[8.5rem] leading-[0.9] outline-text group-hover:text-clay transition-colors duration-500 [-webkit-text-stroke-color:hsl(var(--background))] group-hover:[-webkit-text-stroke-color:hsl(var(--clay))]">
+            Prenota
+            <br />
+            ora →
+          </span>
+        </a>
+        <p className="mt-8 caption opacity-60">Prenotazione sicura e prezzi aggiornati su Booking.com</p>
       </div>
     </section>
   );

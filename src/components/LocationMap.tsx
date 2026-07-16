@@ -13,7 +13,7 @@ export default function LocationMap({ compact = false }: { compact?: boolean }) 
       <div className="container-editorial grid gap-12 md:grid-cols-12">
         <div className="md:col-span-5">
           <p className="label text-muted-foreground">{compact ? "Dove siamo" : "La posizione"}</p>
-          <h2 className="mt-5 font-display text-5xl md:text-6xl text-sea leading-[1.05]">
+          <h2 className="mt-5 headline text-4xl md:text-6xl text-sea">
             Campomarino Lido, Molise.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-foreground/80 max-w-md">
