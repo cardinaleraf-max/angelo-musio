@@ -11,7 +11,7 @@ export default function Rating() {
         <div className="md:col-span-5">
           <p className="label text-muted-foreground">Recensioni Booking</p>
           <div className="mt-4 flex items-baseline gap-5">
-            <span className="headline text-[7rem] md:text-[9rem] leading-none text-sea tabular-nums">
+            <span className="headline text-[4.5rem] md:text-[6.5rem] leading-none text-sea tabular-nums">
               <Counter value={property.rating.score} />
             </span>
             <div>

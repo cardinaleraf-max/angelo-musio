@@ -1,8 +1,13 @@
-import { nearby } from "@/data/property";
+import { nearby, property } from "@/data/property";
+import KineticTitle from "./fx/KineticTitle";
+
+const MAPS_QUERY = encodeURIComponent("B&B Via del mare, Via Don Luigi Sturzo 87, 86042 Campomarino CB");
+const MAPS_EMBED = `https://www.google.com/maps?q=${MAPS_QUERY}&z=16&hl=it&output=embed`;
+const MAPS_DIRECTIONS = `https://www.google.com/maps/dir/?api=1&destination=${MAPS_QUERY}`;
 
 const groups = [
   { title: "Spiagge", items: nearby.beaches },
-  { title: "Luoghi", items: nearby.places },
+  { title: "Da vedere", items: nearby.places },
   { title: "Ristoranti", items: nearby.food },
   { title: "Trasporti", items: nearby.transport },
 ];
@@ -13,25 +18,23 @@ export default function LocationMap({ compact = false }: { compact?: boolean }) 
       <div className="container-editorial grid gap-12 md:grid-cols-12">
         <div className="md:col-span-5">
           <p className="label text-muted-foreground">{compact ? "Dove siamo" : "La posizione"}</p>
-          <h2 className="mt-5 headline text-4xl md:text-6xl text-sea">
-            Campomarino Lido, Molise.
-          </h2>
+          <KineticTitle text="Campomarino Lido, Molise." className="mt-5 text-3xl md:text-5xl text-sea" />
           <p className="mt-6 text-base leading-relaxed text-foreground/80 max-w-md">
-            La costa molisana è una delle meno battute d'Italia — spiagge lunghe di sabbia dorata,
-            trattorie di pesce, e la Puglia a un'ora di macchina. Dal B&B alla battigia sono
-            trecento metri di passeggiata.
+            Una zona tranquilla e ben servita: ristoranti, gelaterie e stabilimenti si raggiungono
+            a piedi, il mare è in fondo alla via. E per le gite: i murales del borgo arbëreshë,
+            Termoli con il Castello Svevo, e i traghetti per le Isole Tremiti.
           </p>
 
           {!compact && (
             <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-8">
               {groups.map((g) => (
                 <div key={g.title}>
-                  <p className="label text-muted-foreground mb-3">{g.title}</p>
+                  <p className="label text-sea-soft mb-3">{g.title}</p>
                   <ul className="space-y-2">
                     {g.items.map((it) => (
-                      <li key={it.name} className="flex justify-between text-sm border-b border-border/60 py-2">
+                      <li key={it.name} className="flex justify-between gap-3 text-sm border-b border-border/60 py-2">
                         <span>{it.name}</span>
-                        <span className="text-muted-foreground">{it.distance}</span>
+                        <span className="text-muted-foreground shrink-0">{it.distance}</span>
                       </li>
                     ))}
                   </ul>
@@ -42,25 +45,25 @@ export default function LocationMap({ compact = false }: { compact?: boolean }) 
         </div>
 
         <div className="md:col-span-7">
-          <div className="aspect-[4/5] md:aspect-[5/6] w-full border border-border overflow-hidden">
+          <div className="relative border-2 border-sea">
             <iframe
-              title="Mappa B&B Via del Mare"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=15.0400%2C41.9490%2C15.0610%2C41.9645&layer=mapnik&marker=41.9565%2C15.0501"
-              className="h-full w-full grayscale-[20%]"
+              title="Mappa Google del B&B Via del Mare"
+              src={MAPS_EMBED}
+              className="block w-full aspect-[4/3] md:aspect-[5/4] grayscale-[15%]"
               loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
             />
-          </div>
-          <p className="mt-4 text-xs text-muted-foreground">
-            Via Don Luigi Sturzo 87 · 86042 Campomarino (CB) ·{" "}
             <a
-              href="https://www.openstreetmap.org/?mlat=41.9565&mlon=15.0501#map=17/41.9565/15.0501"
+              href={MAPS_DIRECTIONS}
               target="_blank"
-              rel="noreferrer"
-              className="underline underline-offset-4"
+              rel="noopener noreferrer"
+              className="absolute -bottom-px -right-px bg-sea text-background label !text-[12px] !font-bold px-5 py-4 hover:bg-clay hover:text-cta-foreground transition-colors"
             >
-              Apri in mappa
+              Indicazioni stradali →
             </a>
-          </p>
+          </div>
+          <p className="mt-4 caption text-muted-foreground">{property.address}</p>
         </div>
       </div>
     </section>

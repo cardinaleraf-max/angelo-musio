@@ -10,7 +10,7 @@ export default function Reviews() {
           <p className="label text-muted-foreground">Cosa dicono gli ospiti</p>
           <KineticTitle
             text="Voci vere, prese da Booking."
-            className="mt-5 text-4xl md:text-6xl text-sea"
+            className="mt-5 text-3xl md:text-5xl text-sea"
           />
         </div>
 
@@ -18,10 +18,15 @@ export default function Reviews() {
           {reviews.map((r, i) => (
             <Reveal key={r.author} delay={i * 130}>
               <figure className="border-t-2 border-sea pt-6 h-full">
-                <span aria-hidden className="headline text-6xl text-sea-soft leading-none block">
-                  “
-                </span>
-                <blockquote className="mt-2 text-lg md:text-xl font-medium leading-snug text-sea">
+                <div className="flex items-start justify-between gap-4">
+                  <span aria-hidden className="headline text-5xl text-sea-soft leading-none block">
+                    “
+                  </span>
+                  <span className="headline text-lg bg-sea text-background px-2.5 py-1.5 leading-none">
+                    {r.score.toFixed(0)}
+                  </span>
+                </div>
+                <blockquote className="mt-2 text-base md:text-lg font-medium leading-snug text-sea">
                   {r.text}
                 </blockquote>
                 <figcaption className="mt-6 label text-muted-foreground">

@@ -14,7 +14,7 @@ const SLAT_ANIM_MS = 800;
 const marqueeItems = [
   "B&B Via del Mare",
   "Campomarino Lido",
-  "300 m dalla spiaggia",
+  "Il mare a 200 metri",
   "Colazione italiana",
   "Vasca idromassaggio",
   "Pet friendly",
@@ -105,27 +105,18 @@ export default function Hero() {
 
         <div className="absolute inset-0 bg-gradient-to-b from-sea/55 via-sea/15 to-sea/85" />
 
-        {/* Numero slide gigante, solo contorno */}
-        <div
-          aria-hidden
-          className="absolute right-4 md:right-10 top-24 md:top-auto md:bottom-40 z-10 text-background/90 pointer-events-none"
-        >
-          <span key={shown} className="headline outline-text block text-[6rem] md:text-[11rem] leading-none caption-in">
-            {String(shown + 1).padStart(2, "0")}
-          </span>
-        </div>
-
         <motion.div
           style={reduced ? undefined : { y: contentY, opacity: contentOpacity }}
           className="relative z-10 h-full container-editorial flex flex-col justify-end pb-16 md:pb-20 text-background"
         >
           <p className="label opacity-90 fade-in">B&amp;B · {property.location}</p>
-          <h1 className="mt-4 headline text-[13.5vw] md:text-[7.6rem] fade-in">
-            Dormi
-            <br />
-            a 300 m<br />
+          <h1 className="mt-4 headline text-[10.5vw] md:text-[5.4rem] fade-in">
+            Dormi a 200&nbsp;m<br />
             dal mare<span className="text-sea-soft">.</span>
           </h1>
+          <p className="mt-5 max-w-lg text-base md:text-lg font-light leading-relaxed opacity-90 fade-in">
+            Due camere curate, colazione italiana e l'Adriatico in fondo alla via.
+          </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4 fade-in">
             <BookingButton variant="primary">Prenota su Booking</BookingButton>
@@ -176,7 +167,7 @@ export default function Hero() {
       {/* Nastro da lido sotto la hero */}
       <Marquee
         items={marqueeItems}
-        className="bg-sea-soft text-sea border-y-2 border-sea py-3 headline text-xl md:text-2xl"
+        className="bg-sea-soft text-sea border-y-2 border-sea py-2.5 headline text-lg md:text-xl"
       />
     </>
   );

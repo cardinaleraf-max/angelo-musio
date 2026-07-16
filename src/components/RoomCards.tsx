@@ -12,7 +12,7 @@ export default function RoomCards() {
           <p className="label text-muted-foreground">Le camere</p>
           <KineticTitle
             text="Due camere. Zero compromessi."
-            className="mt-5 text-4xl md:text-6xl text-sea"
+            className="mt-5 text-3xl md:text-5xl text-sea"
           />
         </div>
 
@@ -27,14 +27,14 @@ export default function RoomCards() {
                 />
                 <span
                   aria-hidden
-                  className="headline outline-text text-background absolute bottom-4 right-4 text-[4.5rem] md:text-[6rem] leading-none pointer-events-none"
+                  className="headline outline-text text-background absolute bottom-3 right-4 text-[2.5rem] md:text-[3.5rem] leading-none pointer-events-none"
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
               <Reveal delay={i * 100}>
                 <p className="mt-6 label text-muted-foreground">{room.guests}</p>
-                <h3 className="mt-2 headline text-3xl md:text-4xl text-sea">{room.name}</h3>
+                <h3 className="mt-2 headline text-2xl md:text-3xl text-sea">{room.name}</h3>
                 <p className="mt-2 caption text-clay uppercase tracking-[0.1em]">{room.subtitle}</p>
                 <p className="mt-4 text-sm leading-relaxed text-foreground/80 max-w-lg">
                   {room.description}

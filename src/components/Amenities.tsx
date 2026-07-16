@@ -8,7 +8,7 @@ export default function Amenities() {
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
             <p className="label text-sea-soft">Servizi</p>
-            <KineticTitle text="L'essenziale, fatto bene." className="mt-5 text-4xl md:text-5xl" />
+            <KineticTitle text="L'essenziale, fatto bene." className="mt-5 text-3xl md:text-4xl" />
             <p className="mt-6 text-sm opacity-80 max-w-xs leading-relaxed">
               Niente in più del necessario, niente in meno di quello che serve
               per sentirsi a casa dopo una giornata al mare.

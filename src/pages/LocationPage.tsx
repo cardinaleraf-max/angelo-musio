@@ -10,7 +10,7 @@ const LocationPage = () => (
       <section className="container-editorial pb-12">
         <p className="label text-muted-foreground">Dove siamo</p>
         <h1 className="mt-5 headline text-5xl md:text-7xl text-sea max-w-3xl">
-          Trecento metri dall'Adriatico.
+          Duecento metri dall'Adriatico.
         </h1>
       </section>
       <LocationMap />

@@ -17,7 +17,7 @@ export default function CtaBanner() {
           className="group block"
         >
           <span className="label text-sea-soft">Il tuo prossimo weekend</span>
-          <span className="mt-4 block headline text-[13vw] md:text-[8.5rem] leading-[0.9] outline-text group-hover:text-clay transition-colors duration-500 [-webkit-text-stroke-color:hsl(var(--background))] group-hover:[-webkit-text-stroke-color:hsl(var(--clay))]">
+          <span className="mt-4 block headline text-[10vw] md:text-[6rem] leading-[0.92] outline-text group-hover:text-clay transition-colors duration-500 [-webkit-text-stroke-color:hsl(var(--background))] group-hover:[-webkit-text-stroke-color:hsl(var(--clay))]">
             Prenota
             <br />
             ora →

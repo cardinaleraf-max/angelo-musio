@@ -6,42 +6,37 @@ import Reveal from "./Reveal";
 
 export default function Intro() {
   return (
-    <section className="py-24 md:py-36 overflow-hidden">
+    <section className="py-24 md:py-32 overflow-hidden">
       <div className="container-editorial grid gap-12 md:grid-cols-12 items-center">
-        <div className="md:col-span-6 relative">
+        <div className="md:col-span-6">
           <ParallaxImg
             src={photos.living}
-            alt="Interni del B&B Via del Mare"
+            alt="La veranda del B&B Via del Mare, dove viene servita la colazione"
             className="w-full aspect-[4/5]"
           />
           <p className="mt-3 caption text-muted-foreground uppercase tracking-[0.1em]">
-            Il soggiorno, dove serviamo la colazione
+            La veranda, dove serviamo la colazione
           </p>
-          <span
-            aria-hidden
-            className="headline outline-text text-sea-soft absolute -top-8 -right-2 md:-right-10 text-[5rem] md:text-[7rem] pointer-events-none"
-          >
-            2023
-          </span>
         </div>
         <div className="md:col-span-5 md:col-start-8">
           <p className="label text-muted-foreground">{property.hosts}, i vostri ospiti</p>
           <KineticTitle
-            text="Vi accogliamo come amici di famiglia."
-            className="mt-5 text-4xl md:text-6xl text-sea"
+            text="Una storia di famiglia, a due passi dal mare."
+            className="mt-5 text-3xl md:text-5xl text-sea"
           />
           <Reveal delay={150}>
             <div className="mt-8 space-y-5 text-base leading-relaxed text-foreground/80">
               <p>
-                Ornella e Angelo hanno aperto il B&B Via del Mare nel 2023, in una via tranquilla
-                di Campomarino Lido a pochi minuti dalla spiaggia. È una casa vera, non una catena:
-                due camere curate una a una, colazione italiana la mattina, e consigli su dove andare
-                a cena se ce lo chiedete.
+                Il B&B Via del Mare nasce dalla passione di Angelo, giovane imprenditore che ha
+                seguito l'esempio di mamma Ornella, da anni protagonista della ristorazione locale.
+                Insieme hanno creato un posto dove ogni ospite si sente speciale: due camere curate
+                nei dettagli, la colazione italiana la mattina e un giardino dove godersi la
+                tranquillità.
               </p>
               <p>
-                La struttura è pet-friendly senza costi aggiuntivi, e il lido convenzionato è a poca
-                distanza. Preferiamo poche cose fatte bene: pulizia, comfort, e il tempo di rispondere a
-                ogni ospite.
+                La struttura è pet-friendly senza costi aggiuntivi, con parcheggio gratuito e il
+                lido convenzionato a poca distanza. E se cercate un consiglio su dove cenare,
+                Angelo è sempre a disposizione.
               </p>
             </div>
             <div className="mt-10">

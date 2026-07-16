@@ -53,7 +53,7 @@ export default function Footer() {
 
       {/* Wordmark gigante a chiusura */}
       <div className="container-editorial overflow-hidden" aria-hidden>
-        <p className="headline text-[11.5vw] leading-[0.85] text-background/10 whitespace-nowrap -mb-[2vw] select-none">
+        <p className="headline text-[8vw] leading-[0.85] text-background/10 whitespace-nowrap -mb-[1.5vw] select-none">
           Via del Mare
         </p>
       </div>
