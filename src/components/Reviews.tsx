@@ -7,7 +7,7 @@ export default function Reviews() {
       <div className="container-editorial">
         <Reveal className="max-w-2xl">
           <p className="label text-muted-foreground">Cosa dicono gli ospiti</p>
-          <h2 className="mt-5 font-serif text-4xl md:text-5xl text-sea leading-tight">
+          <h2 className="mt-5 font-display text-4xl md:text-5xl text-sea leading-tight">
             Tre voci vere, prese da Booking. Nessuna scritta da noi.
           </h2>
         </Reveal>

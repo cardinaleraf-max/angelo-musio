@@ -15,6 +15,7 @@ const Index = () => (
     <Nav transparent />
     <main>
       <Hero />
+      <div className="awning" aria-hidden />
       <Intro />
       <Rating />
       <RoomCards />

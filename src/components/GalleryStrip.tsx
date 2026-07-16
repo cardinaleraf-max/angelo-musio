@@ -9,7 +9,7 @@ export default function GalleryStrip() {
           <div className="flex items-end justify-between gap-6">
             <div>
               <p className="label text-muted-foreground">La casa</p>
-              <h2 className="mt-5 font-serif text-4xl md:text-5xl text-sea leading-tight">
+              <h2 className="mt-5 font-display text-4xl md:text-5xl text-sea leading-tight">
                 Uno sguardo dentro.
               </h2>
             </div>

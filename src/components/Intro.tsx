@@ -16,7 +16,7 @@ export default function Intro() {
         </Reveal>
         <Reveal delay={120} className="md:col-span-5 md:col-start-8">
           <p className="label text-muted-foreground">{property.hosts}, i vostri ospiti</p>
-          <h2 className="mt-5 font-serif text-5xl md:text-6xl leading-[1.02] text-sea">
+          <h2 className="mt-5 font-display text-5xl md:text-6xl leading-[1.02] text-sea">
             Vi accogliamo come un amico di famiglia.
           </h2>
           <div className="mt-8 space-y-5 text-base leading-relaxed text-foreground/80">

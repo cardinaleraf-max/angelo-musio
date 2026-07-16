@@ -10,7 +10,7 @@ const Rooms = () => (
     <main className="pt-32">
       <section className="container-editorial pb-16 md:pb-24">
         <p className="label text-muted-foreground">Le camere</p>
-        <h1 className="mt-5 font-serif text-6xl md:text-7xl text-sea leading-[1.02] max-w-3xl">
+        <h1 className="mt-5 font-display text-6xl md:text-7xl text-sea leading-[1.02] max-w-3xl">
           Basic o Luxury. Entrambe con balcone.
         </h1>
         <p className="mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
@@ -40,7 +40,7 @@ const Rooms = () => (
             </div>
             <div className={`md:col-span-5 ${idx % 2 ? "md:order-1" : ""}`}>
               <p className="label text-muted-foreground">{room.guests}</p>
-              <h2 className="mt-3 font-serif text-4xl md:text-5xl text-sea">{room.name}</h2>
+              <h2 className="mt-3 font-display text-4xl md:text-5xl text-sea">{room.name}</h2>
               <p className="mt-2 font-serif italic text-xl text-muted-foreground">{room.subtitle}</p>
               <p className="mt-6 text-base leading-relaxed text-foreground/80">{room.description}</p>
               <p className="mt-6 text-sm text-muted-foreground">{room.beds}</p>

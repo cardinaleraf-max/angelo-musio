@@ -8,7 +8,7 @@ export default function RoomCards() {
       <div className="container-editorial">
         <Reveal className="max-w-2xl">
           <p className="label text-muted-foreground">Le camere</p>
-          <h2 className="mt-5 font-serif text-5xl md:text-6xl text-sea leading-[1.05]">
+          <h2 className="mt-5 font-display text-5xl md:text-6xl text-sea leading-[1.05]">
             Due camere, entrambe pensate per riposare bene.
           </h2>
         </Reveal>
@@ -27,7 +27,7 @@ export default function RoomCards() {
               <div className="mt-6 flex items-baseline justify-between gap-6">
                 <div>
                   <p className="label text-muted-foreground">{room.guests}</p>
-                  <h3 className="mt-2 font-serif text-3xl text-sea">{room.name}</h3>
+                  <h3 className="mt-2 font-display text-3xl text-sea">{room.name}</h3>
                   <p className="mt-1 font-serif italic text-muted-foreground">{room.subtitle}</p>
                 </div>
               </div>

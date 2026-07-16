@@ -66,8 +66,9 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        sans: ['"Inter Tight"', 'system-ui', 'sans-serif'],
+        display: ['Italiana', 'Didot', 'serif'],
+        serif: ['Newsreader', 'Georgia', 'serif'],
+        sans: ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         tightest: '-0.03em',

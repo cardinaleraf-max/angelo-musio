@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <img src="/logo.png" alt="" className="h-12 w-12 rounded-full bg-background/10 object-cover" />
             <div>
-              <p className="font-serif text-2xl">Via del Mare</p>
+              <p className="font-display text-2xl">Via del Mare</p>
               <p className="label opacity-70">Campomarino · Molise</p>
             </div>
           </div>

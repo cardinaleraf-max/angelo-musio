@@ -31,14 +31,14 @@ export default function Nav({ transparent = false }: { transparent?: boolean }) 
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-colors duration-500",
-        solid ? "bg-background/95 border-b border-border" : "bg-transparent",
+        solid ? "bg-background/90 backdrop-blur-md border-b border-border" : "bg-transparent",
       )}
     >
       <div className="container-editorial flex items-center justify-between h-20">
         <Link to="/" className={cn("flex items-center gap-3", solid ? "text-sea" : "text-background")}>
           <img src="/logo.png" alt="B&B Via del Mare" className="h-11 w-11 rounded-full object-cover" />
           <span className="hidden sm:flex flex-col leading-tight">
-            <span className="font-serif text-xl">Via del Mare</span>
+            <span className="font-display text-[22px] leading-none">Via del Mare</span>
             <span className="label opacity-70">Campomarino Lido</span>
           </span>
         </Link>
@@ -85,7 +85,7 @@ export default function Nav({ transparent = false }: { transparent?: boolean }) 
         <div className="md:hidden bg-background border-t border-border">
           <div className="container-editorial py-6 flex flex-col gap-5">
             {links.map((l) => (
-              <NavLink key={l.to} to={l.to} end={l.to === "/"} className="font-serif text-2xl text-sea">
+              <NavLink key={l.to} to={l.to} end={l.to === "/"} className="font-display text-2xl text-sea">
                 {l.label}
               </NavLink>
             ))}
