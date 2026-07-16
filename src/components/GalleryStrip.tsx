@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { galleryStrip } from "@/data/property";
 
@@ -8,16 +8,29 @@ import { galleryStrip } from "@/data/property";
  */
 export default function GalleryStrip() {
   const trackRef = useRef<HTMLElement>(null);
+  const stripRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: trackRef, offset: ["start start", "end end"] });
-  const x = useTransform(scrollYProgress, [0, 1], ["2%", "-62%"]);
+
+  // Distanza da percorrere: larghezza reale della striscia meno il viewport.
+  const [maxX, setMaxX] = useState(0);
+  useLayoutEffect(() => {
+    const measure = () => {
+      const el = stripRef.current;
+      if (el) setMaxX(Math.max(0, el.scrollWidth - window.innerWidth + 24));
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+  const x = useTransform(scrollYProgress, [0, 1], [0, -maxX]);
 
   if (reduced) {
     return (
       <section aria-label="Galleria fotografica" className="py-24 bg-secondary/40">
         <div className="container-editorial">
           <p className="label text-muted-foreground">La casa</p>
-          <h2 className="mt-4 headline text-4xl text-sea">Uno sguardo dentro.</h2>
+          <h2 className="mt-4 headline text-4xl text-sea">Uno sguardo all'interno.</h2>
         </div>
         <div className="mt-10 flex gap-5 overflow-x-auto px-6 md:px-10 pb-4 scrollbar-none">
           {galleryStrip.map((photo) => (
@@ -37,17 +50,22 @@ export default function GalleryStrip() {
   }
 
   return (
-    <section ref={trackRef} aria-label="Galleria fotografica" className="relative h-[300vh] bg-secondary/40">
+    <section
+      ref={trackRef}
+      aria-label="Galleria fotografica"
+      className="relative bg-secondary/40"
+      style={{ height: `${100 + galleryStrip.length * 18}vh` }}
+    >
       <div className="sticky top-0 h-[100svh] overflow-hidden flex flex-col justify-center">
         <div className="container-editorial flex items-end justify-between gap-6 pb-10">
           <div>
             <p className="label text-muted-foreground">La casa</p>
-            <h2 className="mt-4 headline text-4xl md:text-6xl text-sea">Uno sguardo dentro.</h2>
+            <h2 className="mt-4 headline text-4xl md:text-6xl text-sea">Uno sguardo all'interno.</h2>
           </div>
           <p className="hidden md:block label text-muted-foreground pb-2">Continua a scorrere ↓</p>
         </div>
 
-        <motion.div style={{ x }} className="flex gap-6 pl-6 md:pl-10 w-max">
+        <motion.div ref={stripRef} style={{ x }} className="flex gap-6 pl-6 md:pl-10 w-max">
           {galleryStrip.map((photo, i) => (
             <figure key={photo.src} className={`shrink-0 ${i % 2 ? "mt-10" : ""}`}>
               <div className="overflow-hidden">

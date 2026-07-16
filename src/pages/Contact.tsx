@@ -9,7 +9,7 @@ const Contact = () => (
     <main className="pt-32">
       <section className="container-editorial pb-24">
         <p className="label text-muted-foreground">Contatti</p>
-        <h1 className="mt-5 headline text-5xl md:text-7xl text-sea max-w-3xl">
+        <h1 className="mt-5 headline text-4xl sm:text-5xl md:text-7xl text-sea max-w-3xl">
           Scriveteci, rispondiamo sempre.
         </h1>
 

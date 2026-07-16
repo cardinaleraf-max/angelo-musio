@@ -9,7 +9,7 @@ const LocationPage = () => (
     <main className="pt-32">
       <section className="container-editorial pb-12">
         <p className="label text-muted-foreground">Dove siamo</p>
-        <h1 className="mt-5 headline text-5xl md:text-7xl text-sea max-w-3xl">
+        <h1 className="mt-5 headline text-4xl sm:text-5xl md:text-7xl text-sea max-w-3xl">
           Duecento metri dall'Adriatico.
         </h1>
       </section>

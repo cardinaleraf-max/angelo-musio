@@ -1,12 +1,18 @@
+import { useState } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import BookingButton from "@/components/BookingButton";
 import CtaBanner from "@/components/CtaBanner";
 import KineticTitle from "@/components/fx/KineticTitle";
+import Lightbox from "@/components/Lightbox";
 import ParallaxImg from "@/components/fx/ParallaxImg";
 import { rooms } from "@/data/property";
 
-const Rooms = () => (
+const Rooms = () => {
+  const [lightbox, setLightbox] = useState<{ room: string; index: number } | null>(null);
+  const activeRoom = lightbox ? rooms.find((r) => r.id === lightbox.room) : undefined;
+
+  return (
   <div className="overflow-x-clip">
     <Nav />
     <main className="pt-32">
@@ -57,12 +63,19 @@ const Rooms = () => (
               <div className="flex gap-4 overflow-x-auto pb-4 snap-x scrollbar-none -mx-6 px-6 md:-mx-10 md:px-10">
                 {room.photos.map((src, i) => (
                   <figure key={src} className="shrink-0 snap-start">
-                    <img
-                      src={src}
-                      alt={`${room.name}, foto ${i + 1} di ${room.photos.length} — B&B Via del Mare`}
-                      loading="lazy"
-                      className="h-[200px] md:h-[260px] w-auto object-cover"
-                    />
+                    <button
+                      type="button"
+                      onClick={() => setLightbox({ room: room.id, index: i })}
+                      className="block cursor-zoom-in"
+                      aria-label={`Apri la foto ${i + 1} di ${room.photos.length} a tutto schermo`}
+                    >
+                      <img
+                        src={src}
+                        alt={`${room.name}, foto ${i + 1} di ${room.photos.length} — B&B Via del Mare`}
+                        loading="lazy"
+                        className="h-[200px] md:h-[260px] w-auto object-cover"
+                      />
+                    </button>
                     <figcaption className="mt-2 label !text-[10px] text-muted-foreground">
                       {String(i + 1).padStart(2, "0")} / {String(room.photos.length).padStart(2, "0")}
                     </figcaption>
@@ -88,7 +101,16 @@ const Rooms = () => (
       <CtaBanner />
     </main>
     <Footer />
+
+    <Lightbox
+      photos={activeRoom?.photos ?? []}
+      index={lightbox?.index ?? null}
+      altPrefix={activeRoom?.name ?? ""}
+      onClose={() => setLightbox(null)}
+      onNavigate={(i) => setLightbox((lb) => lb && { ...lb, index: i })}
+    />
   </div>
-);
+  );
+};
 
 export default Rooms;
