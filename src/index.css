@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* B&B Via del Mare — bold contemporaneo.
-   Archivo nero espanso, acqua elettrica, corallo per prenotare.
+   Archivo nero espanso, acqua elettrica anche per prenotare.
    Firma: marquee da lido + doghe verticali nello slideshow. */
 
 @layer base {
@@ -31,8 +31,8 @@
     --accent: 187 73% 49%;            /* #21C7DB */
     --accent-foreground: 194 66% 11%;
 
-    /* CTA — corallo, solo per prenotare */
-    --cta: 12 100% 61%;               /* #FF5C39 */
+    /* CTA — la stessa acqua elettrica dell'accento */
+    --cta: 187 73% 49%;               /* #21C7DB */
     --cta-foreground: 194 66% 11%;
 
     --destructive: 0 70% 45%;
@@ -48,7 +48,7 @@
     --sand-dark: 40 30% 90%;
     --sea: 194 66% 11%;               /* notte */
     --sea-soft: 187 73% 49%;          /* acqua */
-    --clay: 12 100% 61%;              /* corallo */
+    --clay: 187 73% 49%;              /* acqua */
 
     --sidebar-background: 40 40% 99%;
     --sidebar-foreground: 194 66% 11%;
