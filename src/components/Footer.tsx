@@ -21,6 +21,11 @@ export default function Footer() {
         <div className="md:col-span-3">
           <p className="label text-sea-soft mb-4">Contatti</p>
           <p className="text-sm opacity-90">{property.address}</p>
+          <p className="mt-3 text-sm">
+            <a href={`mailto:${property.email}`} className="opacity-90 hover:text-sea-soft">
+              {property.email}
+            </a>
+          </p>
           <p className="mt-4 caption opacity-70">
             Check-in {property.checkIn}<br />
             Check-out {property.checkOut}

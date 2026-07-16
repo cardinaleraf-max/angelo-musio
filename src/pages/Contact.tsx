@@ -20,6 +20,15 @@ const Contact = () => (
               <p className="text-xl font-medium text-sea leading-snug">{property.address}</p>
             </div>
             <div>
+              <p className="label text-muted-foreground mb-3">Email</p>
+              <a
+                href={`mailto:${property.email}`}
+                className="text-xl font-medium text-sea leading-snug underline-offset-4 hover:underline hover:text-sea-soft transition-colors"
+              >
+                {property.email}
+              </a>
+            </div>
+            <div>
               <p className="label text-muted-foreground mb-3">Orari</p>
               <p className="text-base text-foreground/80">
                 Check-in {property.checkIn}<br />
@@ -56,7 +65,7 @@ const Contact = () => (
               </div>
               <div className="flex justify-between border-b border-border/60 py-2">
                 <dt className="text-muted-foreground">PEC</dt>
-                <dd>{property.email}</dd>
+                <dd>{property.pec}</dd>
               </div>
             </dl>
           </aside>

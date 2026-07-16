@@ -3,17 +3,16 @@ import { galleryStrip } from "@/data/property";
 import Lightbox from "./Lightbox";
 import Reveal from "./Reveal";
 
-const STEP = 9;
+const PREVIEW = 9;
 
 /**
  * Gallery a mosaico stile Pinterest: parte con 9 foto,
- * "Mostra di più" ne aggiunge altre. Click per il tutto schermo.
+ * "Mostra di più" apre l'intera galleria. Click per il tutto schermo.
  */
 export default function GalleryStrip() {
-  const [visible, setVisible] = useState(STEP);
+  const [expanded, setExpanded] = useState(false);
   const [lightbox, setLightbox] = useState<number | null>(null);
-  const shown = galleryStrip.slice(0, visible);
-  const allShown = visible >= galleryStrip.length;
+  const shown = expanded ? galleryStrip : galleryStrip.slice(0, PREVIEW);
 
   return (
     <section aria-label="Galleria fotografica" className="py-24 md:py-32 bg-secondary/40">
@@ -54,11 +53,11 @@ export default function GalleryStrip() {
           ))}
         </div>
 
-        {!allShown && (
+        {!expanded && (
           <div className="mt-12 flex justify-center">
             <button
               type="button"
-              onClick={() => setVisible((v) => Math.min(v + STEP, galleryStrip.length))}
+              onClick={() => setExpanded(true)}
               className="group inline-flex items-center gap-3 px-7 py-4 label !text-[13px] !font-bold border-2 border-sea text-sea transition-all duration-300 hover:bg-sea-soft hover:border-sea-soft"
             >
               <span>Mostra di più</span>
