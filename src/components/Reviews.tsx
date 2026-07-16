@@ -9,7 +9,7 @@ export default function Reviews() {
         <div className="max-w-3xl">
           <p className="label text-muted-foreground">Cosa dicono gli ospiti</p>
           <KineticTitle
-            text="Voci vere, prese da Booking."
+            text="Voci vere, da chi c'è stato."
             className="mt-5 text-3xl md:text-5xl text-sea"
           />
         </div>

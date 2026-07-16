@@ -20,12 +20,6 @@ const Contact = () => (
               <p className="text-xl font-medium text-sea leading-snug">{property.address}</p>
             </div>
             <div>
-              <p className="label text-muted-foreground mb-3">Email</p>
-              <a href={`mailto:${property.email}`} className="text-xl font-medium text-sea underline-offset-4 hover:underline">
-                {property.email}
-              </a>
-            </div>
-            <div>
               <p className="label text-muted-foreground mb-3">Orari</p>
               <p className="text-base text-foreground/80">
                 Check-in {property.checkIn}<br />
