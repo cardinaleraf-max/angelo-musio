@@ -17,7 +17,7 @@ export default function BookingButton({
   const base =
     "group inline-flex items-center gap-3 px-7 py-4 label !text-[13px] !font-bold transition-all duration-300 border-2";
   const styles = {
-    primary: "bg-clay text-cta-foreground border-clay hover:bg-sea-soft hover:border-sea-soft",
+    primary: "bg-clay text-cta-foreground border-clay hover:bg-sea hover:text-background hover:border-sea",
     ghost: "bg-transparent text-current border-current hover:bg-clay hover:text-cta-foreground hover:border-clay",
     light: "bg-transparent text-background border-background/70 hover:bg-clay hover:text-cta-foreground hover:border-clay",
   } as const;
