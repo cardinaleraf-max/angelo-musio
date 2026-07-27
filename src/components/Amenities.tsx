@@ -18,14 +18,14 @@ export default function Amenities() {
             {amenities.map((a, i) => (
               <li
                 key={a.label}
-                className={`group py-5 flex items-baseline justify-between gap-4 border-b-2 border-background/15 hover:border-sea-soft transition-colors ${
+                className={`group py-5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b-2 border-background/15 hover:border-sea-soft transition-colors ${
                   i < 2 ? "border-t-2" : ""
                 }`}
               >
                 <span className="headline text-lg md:text-xl group-hover:text-sea-soft transition-colors">
                   {a.label}
                 </span>
-                <span className="caption opacity-60 text-right shrink-0">{a.note}</span>
+                <span className="caption opacity-60 ml-auto text-right">{a.note}</span>
               </li>
             ))}
           </ul>
