@@ -34,8 +34,9 @@ export default function Intro() {
                 tranquillità.
               </p>
               <p>
-                La struttura è pet-friendly senza costi aggiuntivi, con parcheggio gratuito e il
-                lido convenzionato a poca distanza. E se cercate un consiglio su dove cenare,
+                La struttura è pet-friendly: i cani sono i benvenuti, con un supplemento di
+                10&nbsp;€ al giorno. Di fronte trovate il parcheggio comunale a pagamento, e il
+                lido convenzionato è a poca distanza. E se cercate un consiglio su dove cenare,
                 Angelo è sempre a disposizione.
               </p>
             </div>

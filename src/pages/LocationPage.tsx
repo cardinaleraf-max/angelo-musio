@@ -22,7 +22,7 @@ const LocationPage = () => (
               <p>
                 <span className="label block text-muted-foreground mb-1">In auto</span>
                 Uscita autostradale A14 "Termoli", poi SS16 direzione sud per 15 minuti.
-                Parcheggio libero in zona.
+                Parcheggio comunale a pagamento proprio di fronte alla struttura.
               </p>
               <p>
                 <span className="label block text-muted-foreground mb-1">In treno</span>

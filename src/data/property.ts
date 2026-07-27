@@ -3,6 +3,8 @@ export const BOOKING_URL =
 
 export const SITE_URL = "https://bbviadelmare.it";
 
+export const INSTAGRAM_URL = "https://www.instagram.com/bnb_via_del_mare/";
+
 export const property = {
   name: "B&B Via del Mare",
   tagline: "Bed & Breakfast a Campomarino Lido",
@@ -152,12 +154,12 @@ export const rooms = [
 
 export const amenities = [
   { label: "Colazione italiana", note: "servita ogni mattina" },
-  { label: "Parcheggio gratuito", note: "comodo, in zona" },
+  { label: "Parcheggio comunale", note: "a pagamento, di fronte alla struttura" },
   { label: "Giardino", note: "per rilassarsi all'ombra" },
   { label: "Vasca idromassaggio", note: "con cromoterapia, nella Luxury" },
   { label: "WiFi gratuito", note: "in tutta la struttura" },
   { label: "Aria condizionata", note: "individuale in camera" },
-  { label: "Pet-friendly", note: "senza costi aggiuntivi" },
+  { label: "Pet-friendly", note: "cani benvenuti, 10 € al giorno" },
   { label: "Lavanderia", note: "su richiesta" },
 ];
 

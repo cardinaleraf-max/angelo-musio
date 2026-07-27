@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { property } from "@/data/property";
+import { Instagram } from "lucide-react";
+import { INSTAGRAM_URL, property } from "@/data/property";
 
 export default function Footer() {
   return (
@@ -30,6 +31,15 @@ export default function Footer() {
             Check-in {property.checkIn}<br />
             Check-out {property.checkOut}
           </p>
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 text-sm opacity-90 hover:text-sea-soft"
+          >
+            <Instagram className="h-4 w-4" aria-hidden />
+            @bnb_via_del_mare
+          </a>
         </div>
 
         <div className="md:col-span-2">

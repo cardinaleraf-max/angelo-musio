@@ -1,7 +1,8 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import BookingButton from "@/components/BookingButton";
-import { property } from "@/data/property";
+import { Instagram } from "lucide-react";
+import { INSTAGRAM_URL, property } from "@/data/property";
 
 const Contact = () => (
   <div className="overflow-x-clip">
@@ -26,6 +27,18 @@ const Contact = () => (
                 className="text-xl font-medium text-sea leading-snug underline-offset-4 hover:underline hover:text-sea-soft transition-colors"
               >
                 {property.email}
+              </a>
+            </div>
+            <div>
+              <p className="label text-muted-foreground mb-3">Instagram</p>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 text-xl font-medium text-sea leading-snug underline-offset-4 hover:underline hover:text-sea-soft transition-colors"
+              >
+                <Instagram className="h-5 w-5" aria-hidden />
+                @bnb_via_del_mare
               </a>
             </div>
             <div>
