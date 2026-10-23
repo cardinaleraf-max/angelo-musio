@@ -74,6 +74,12 @@ export default function Footer() {
         <div className="container-editorial py-5 flex flex-col md:flex-row gap-3 items-start md:items-center justify-between caption !text-[11px] opacity-60">
           <p>© {new Date().getFullYear()} B & B Via del Mare di Musio Angelo e C. S.a.s.</p>
           <p>Campomarino Lido, Molise — Italia</p>
+          <p>
+            Powered by{" "}
+            <a href="https://127hub.it" target="_blank" rel="noopener" className="hover:text-sea-soft">
+              127HUB
+            </a>
+          </p>
         </div>
       </div>
     </footer>
