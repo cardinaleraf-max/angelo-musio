@@ -63,7 +63,7 @@ export default function Nav({ transparent = false }: { transparent?: boolean }) 
         </nav>
 
         <div className="hidden md:block">
-          <BookingButton variant={solid ? "primary" : "light"}>Prenota</BookingButton>
+          <BookingButton variant={solid ? "primary" : "light"}>Prenota ora</BookingButton>
         </div>
 
         <button
@@ -89,7 +89,7 @@ export default function Nav({ transparent = false }: { transparent?: boolean }) 
                 {l.label}
               </NavLink>
             ))}
-            <BookingButton>Prenota su Booking</BookingButton>
+            <BookingButton>Prenota ora</BookingButton>
             <p className="label text-muted-foreground pt-4">{property.address}</p>
           </div>
         </div>

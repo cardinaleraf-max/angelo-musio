@@ -1,5 +1,7 @@
-export const BOOKING_URL =
-  "https://www.booking.com/hotel/it/b-amp-b-via-del-mare-campomarino-lido.html";
+// Prenotazioni solo telefoniche (anche per la disponibilità): niente più Booking.
+export const PHONE = "393339406820";
+export const PHONE_DISPLAY = "333 940 6820";
+export const PHONE_URL = `tel:+${PHONE}`;
 
 export const SITE_URL = "https://bbviadelmare.it";
 

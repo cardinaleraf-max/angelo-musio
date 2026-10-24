@@ -2,7 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import BookingButton from "@/components/BookingButton";
 import { Instagram } from "lucide-react";
-import { INSTAGRAM_URL, property } from "@/data/property";
+import { INSTAGRAM_URL, PHONE_DISPLAY, PHONE_URL, property } from "@/data/property";
 
 const Contact = () => (
   <div className="overflow-x-clip">
@@ -19,6 +19,16 @@ const Contact = () => (
             <div>
               <p className="label text-muted-foreground mb-3">Indirizzo</p>
               <p className="text-xl font-medium text-sea leading-snug">{property.address}</p>
+            </div>
+            <div>
+              <p className="label text-muted-foreground mb-3">Telefono e WhatsApp</p>
+              <a
+                href={PHONE_URL}
+                className="text-xl font-medium text-sea leading-snug underline-offset-4 hover:underline hover:text-sea-soft transition-colors"
+              >
+                {PHONE_DISPLAY}
+              </a>
+              <p className="mt-2 text-sm text-foreground/70">Chiamateci per disponibilità e prenotazioni.</p>
             </div>
             <div>
               <p className="label text-muted-foreground mb-3">Email</p>
@@ -49,7 +59,7 @@ const Contact = () => (
               </p>
             </div>
             <div className="pt-4">
-              <BookingButton>Prenota su Booking</BookingButton>
+              <BookingButton>Prenota ora</BookingButton>
             </div>
           </div>
 

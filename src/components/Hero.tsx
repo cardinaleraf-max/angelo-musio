@@ -119,7 +119,7 @@ export default function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4 fade-in">
-            <BookingButton variant="primary">Prenota su Booking</BookingButton>
+            <BookingButton variant="primary">Prenota ora</BookingButton>
             <Link
               to="/camere"
               className="inline-flex items-center gap-3 px-7 py-4 label !text-[13px] border-2 border-background/70 hover:bg-background hover:text-sea transition-colors"

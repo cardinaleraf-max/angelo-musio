@@ -1,4 +1,5 @@
-import { BOOKING_URL } from "@/data/property";
+import { Phone } from "lucide-react";
+import { PHONE_DISPLAY, PHONE_URL } from "@/data/property";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -9,7 +10,7 @@ type Props = {
 };
 
 export default function BookingButton({
-  children = "Prenota su Booking",
+  children = "Prenota ora",
   variant = "primary",
   className,
   label,
@@ -24,23 +25,12 @@ export default function BookingButton({
 
   return (
     <a
-      href={BOOKING_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={label ?? "Apri Booking.com in una nuova scheda"}
+      href={PHONE_URL}
+      aria-label={label ?? `Chiama il ${PHONE_DISPLAY} per prenotare`}
       className={cn(base, styles[variant], className)}
     >
       <span>{children}</span>
-      <svg
-        width="14"
-        height="14"
-        viewBox="0 0 14 14"
-        fill="none"
-        aria-hidden
-        className="transition-transform duration-300 group-hover:translate-x-1"
-      >
-        <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
-      </svg>
+      <Phone className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" aria-hidden />
     </a>
   );
 }

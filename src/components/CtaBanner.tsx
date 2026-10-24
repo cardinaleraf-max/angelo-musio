@@ -1,4 +1,4 @@
-import { BOOKING_URL } from "@/data/property";
+import { PHONE_DISPLAY, PHONE_URL } from "@/data/property";
 import Marquee from "./fx/Marquee";
 
 export default function CtaBanner() {
@@ -10,10 +10,8 @@ export default function CtaBanner() {
       />
       <div className="container-editorial py-20 md:py-28">
         <a
-          href={BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Prenota su Booking.com"
+          href={PHONE_URL}
+          aria-label={`Chiama il ${PHONE_DISPLAY} per prenotare`}
           className="group block"
         >
           <span className="label text-sea-soft">Il tuo prossimo weekend</span>
@@ -23,7 +21,7 @@ export default function CtaBanner() {
             ora →
           </span>
         </a>
-        <p className="mt-8 caption opacity-60">Prenotazione sicura e prezzi aggiornati su Booking.com</p>
+        <p className="mt-8 caption opacity-60">{`Chiama il ${PHONE_DISPLAY} per disponibilità e prezzi`}</p>
       </div>
     </section>
   );

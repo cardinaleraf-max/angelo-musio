@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Instagram } from "lucide-react";
-import { INSTAGRAM_URL, property } from "@/data/property";
+import { INSTAGRAM_URL, PHONE_DISPLAY, PHONE_URL, property } from "@/data/property";
 
 export default function Footer() {
   return (
@@ -23,6 +23,11 @@ export default function Footer() {
           <p className="label text-sea-soft mb-4">Contatti</p>
           <p className="text-sm opacity-90">{property.address}</p>
           <p className="mt-3 text-sm">
+            <a href={PHONE_URL} className="opacity-90 hover:text-sea-soft">
+              Tel. {PHONE_DISPLAY}
+            </a>
+          </p>
+          <p className="mt-1 text-sm">
             <a href={`mailto:${property.email}`} className="opacity-90 hover:text-sea-soft">
               {property.email}
             </a>
