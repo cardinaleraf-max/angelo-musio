@@ -9,7 +9,7 @@ export default function Rating() {
     <section className="py-24 md:py-32 bg-sand-dark/50 overflow-hidden">
       <div className="container-editorial grid gap-14 md:grid-cols-12 items-center">
         <div className="md:col-span-5">
-          <p className="label text-muted-foreground">Recensioni Booking</p>
+          <p className="label text-muted-foreground">Le recensioni degli ospiti</p>
           <div className="mt-4 flex items-baseline gap-5">
             <span className="headline text-[4.5rem] md:text-[6.5rem] leading-none text-sea tabular-nums">
               <Counter value={property.rating.score} />

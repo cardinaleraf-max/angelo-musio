@@ -25,7 +25,7 @@ const Rooms = () => {
         />
         <p className="mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
           Due camere triple da 30 m², una pensata per le famiglie e una per le coppie.
-          Tutte le foto e le informazioni arrivano dalla nostra scheda Booking:
+          Tutte le foto sono delle nostre camere, scattate così come sono:
           quello che vedi è quello che trovi.
         </p>
       </section>
